@@ -1,0 +1,347 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8eff5 100%);
+    color: #1A1F71;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1A1F71;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+
+header p {
+    margin: 10px 0 0 0;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* Main container */
+main {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 
+        0 8px 32px rgba(26, 31, 113, 0.12),
+        0 2px 8px rgba(26, 31, 113, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Label styles */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1A1F71;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Input styles */
+input {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fafbfc;
+}
+
+input:focus {
+    border-color: #1A1F71;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(26, 31, 113, 0.1);
+    background: white;
+    transform: translateY(-1px);
+}
+
+input:hover:not(:focus) {
+    border-color: #c1c9d0;
+    background: white;
+}
+
+/* Specific input styling */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+    color: #8b95a1;
+    font-style: italic;
+}
+
+/* Expiry and CVV container */
+.expiry-cvv {
+    display: flex;
+    gap: 16px;
+}
+
+.expiry-cvv > div {
+    flex: 1;
+}
+
+.expiry-cvv input[name="expiry"] {
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+}
+
+.expiry-cvv input[name="cvv"] {
+    letter-spacing: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Button styles */
+button {
+    margin-top: 30px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #1A1F71 0%, #0f154a 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0f154a 0%, #0a0f35 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 31, 113, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Error styles */
+.error {
+    color: #dc3545;
+    font-size: 14px;
+    display: block;
+    margin-top: 8px;
+    font-weight: 500;
+    animation: slideInShake 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideInShake {
+    0% { 
+        opacity: 0;
+        transform: translateY(-10px) translateX(-5px); 
+    }
+    20% { 
+        opacity: 1;
+        transform: translateY(0) translateX(5px); 
+    }
+    40% { 
+        transform: translateX(-3px); 
+    }
+    60% { 
+        transform: translateX(3px); 
+    }
+    80% { 
+        transform: translateX(-1px); 
+    }
+    100% { 
+        transform: translateX(0); 
+    }
+}
+
+/* Message styles */
+#message {
+    margin-top: 20px;
+    padding: 16px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 8px;
+    animation: slideInFromBottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.success-message {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background: linear-gradient(135deg, #f8d7da 0%, #f1c2c7 100%);
+    color: #721c24;
+    border: 1px solid #f1c2c7;
+}
+
+/* Card type indicator */
+.card-type {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 8px;
+    display: block;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes slideInFromBottom {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { 
+        box-shadow: 0 0 0 0 rgba(26, 31, 113, 0.4);
+    }
+    70% { 
+        box-shadow: 0 0 0 10px rgba(26, 31, 113, 0);
+    }
+    100% { 
+        box-shadow: 0 0 0 0 rgba(26, 31, 113, 0);
+    }
+}
+
+/* Loading state */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    main {
+        padding: 30px 25px;
+        border-radius: 12px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .expiry-cvv {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    main {
+        padding: 25px 20px;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    input, button {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+    }
+    
+    main {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    button {
+        display: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    input {
+        border-width: 3px;
+    }
+    
+    button {
+        border: 3px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
